@@ -2,7 +2,7 @@ import java.util.Scanner;
 import javax.swing.*;
 import java.io.*;
 import java.text.NumberFormat;
-
+import java.util.ArrayList;
 /** ***************************************************
  *  Name:           Sveinson
  *  Class:          CS30S
@@ -13,7 +13,7 @@ import java.text.NumberFormat;
  * 
  *************************************************************/
 
-public class ClientTemplate {
+public class EmployeeMain {
 
     public static void main(String[] args) throws IOException{
     // ***** constants *******
@@ -34,6 +34,8 @@ public class ClientTemplate {
     
     // ***** objects *****
     
+         ArrayList<Employee> Employees = new ArrayList<>();
+         
         //Scanner scanner = new Scanner(System.in);
         //NumberFormat currency = NumberFormat.getCurrencyInstance();
         
@@ -45,9 +47,9 @@ public class ClientTemplate {
     // ***** print banners *****
     
         banner = "*****************************" + nl;
-        banner += "Name:        Sveinson" + nl;
+        banner += "Name:        Varish" + nl;
         banner += "Class:       CS30S" + nl;
-        banner += "Assignment:  Ax Qy" + nl;
+        banner += "Assignment:  December Exam" + nl;
         banner += "*****************************" + nl + nl;
         
         System.out.println(banner);
@@ -60,7 +62,34 @@ public class ClientTemplate {
         // echo input back to console window
     
     // ***** Main Processing *****
-    
+        Employees.add(new Employee(35,12.50));
+        Employees.add(new Employee(40,17.25));
+        Employees.add(new Employee(45,12.50));
+        Employees.add(new Employee(40,25.00));
+        Employees.add(new Employee(46,20.00));
+        Employees.add(new Employee(21,18.75));
+        Employees.add(new Employee(48,15.50));
+        Employees.add(new Employee(40,32.75));
+        Employees.add(new Employee(41,30.00));
+        System.out.println("ID: HoursWorked: HourlyWage: Regular Pay: OT Pay: Gross Pay:");
+        for(Employee e: Employees)
+          System.out.println(e.toString());
+          
+          Employees.get(1).setHoursWorked(34);
+          Employees.get(1).setHourlyWage(20.50);
+          System.out.println("Here are some employees properties printed using getters");
+          System.out.println(nl + Employees.get(1).getId());
+          System.out.println(Employees.get(1).getHoursWorked());
+          System.out.println(Employees.get(1).getHourlyWage());
+          System.out.println(Employees.get(1).getRegularPay());
+          System.out.println(Employees.get(1).getOTPay());
+          System.out.println(Employees.get(1).getGrossPay());
+          System.out.println("Employee:" + Employees.get(0).getId() + " Removed from Payroll");
+          System.out.println(Employees.remove(0) + nl);
+          System.out.println("ID: HoursWorked: HourlyWage: Regular Pay: OT Pay: Gross Pay:");
+          for(Employee e: Employees)
+          System.out.println(e.toString());
+          
     // ***** Print Formatted Output *****
     
     // ***** Closing Message *****

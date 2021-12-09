@@ -46,7 +46,7 @@ public class Employee {
         this.HoursWorked = hwd;                  
         this.HourlyWage = hwg;
     
-    }
+    }//end of no-arg constructor   
     
     //*** Getters ***
     /*****************************************
@@ -132,7 +132,7 @@ public class Employee {
     public double getOTPay(){
        double OTPay;
        if(HoursWorked > 40){
-            OTPay = HourlyWage - 40 * HoursWorked;
+            OTPay = (HoursWorked - 40) * HourlyWage * 1.5;
        }
        else{
             OTPay = 0;
@@ -152,12 +152,16 @@ public class Employee {
        GrossPay = this.getRegularPay() + this.getOTPay();
        return GrossPay;
     }// end getOTPay
+    
     //To String
     @Override 
     public String toString(){
-      String st = "";
-      st = (this.id + this.HoursWorked + " $" +this.HourlyWage);
-      return st;
+      
+      StringBuilder st = new StringBuilder();
+      
+      st.append(String.format("%s%-5d%s%3d%11s%.3f%5s%.3f%5s%.3f%5s%.3f", "", this.getId(), " " , this.getHoursWorked()," $", this.getHourlyWage(), " $", this.getRegularPay(), " $", this.getOTPay(), " $",this.getGrossPay()));
+      return st.toString();
 
     }// end of ToString 
+    
 } // end of public class
